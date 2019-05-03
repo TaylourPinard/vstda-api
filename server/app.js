@@ -40,7 +40,7 @@ app.delete('/api/TodoItems/*', (req, res) => {
     array.splice(req.params[0], 1);
     jsonFile = array;
     for(let i = 0; i < jsonFile.length; i++){
-        array[i]["todoItemId"] = i;
+        jsonFile[i]["todoItemId"] = i;
     }
     fs.writeFileSync("server/data.json", JSON.stringify(jsonFile, null, 2));
 });
